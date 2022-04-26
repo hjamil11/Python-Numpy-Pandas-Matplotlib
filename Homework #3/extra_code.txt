@@ -1,0 +1,166 @@
+data =  csv.reader(csv_file, delimiter = ',', quotechar = '|')
+
+    with open('out.json', 'w') as json_file:
+        for row in data :
+            #print(' '.join(row))
+            json_file.load(row)
+
+
+data_reader = csv.reader(f)
+
+header = []
+
+header = next(data_reader)
+
+data = list(next(data_reader))
+
+print(data)
+
+# for tv_shows in header:
+#     #print(tv_shows)
+#     if (tv_shows == "type"):
+#         idx += 1
+#         shows_type = data[idx]
+#         #print(shows_type, '\n')
+
+####################################################################
+
+# list = []
+# for row in csv_file:
+    # if show_type == "TV_Show":
+    # list = read the show_id, title, director, country, date_added, and location
+    # 
+
+
+######################################################################
+Author: Corey Shafer
+Python Tutorial: CSV Module - How to Read, Parse, and Write CSV Files
+
+import csv
+
+with open('names.csv', 'r') as csv_file:
+    csv_reader = csv.reader(csv_files) 
+
+    next(csv_reader)
+
+    for line in csv_reader:
+        print(line[2])
+
+###########################################################################
+# with open('output_file.txt', 'w') as out_file:
+    #     title = []
+
+    #     for row in csv_file_reader:
+    #         if row[1] == "TV Show":
+    #             title.append(row[2])
+    #             next(csv_file_reader)
+    #         else:
+    #             next(csv_file_reader)
+            
+    #     out_file.write(title)
+
+#############################################################################
+# Original main.py
+
+import json
+import csv
+import os
+import sys
+
+
+with open("netflix_titles.csv", encoding = 'utf-8') as csv_file:
+    csv_file_reader = csv.reader(csv_file, delimiter = ',')
+
+    header = next(csv_file_reader)
+
+    print(header, '\n')
+
+    next(csv_file_reader)
+
+    # show_id = []
+    # title = []
+    # director = []
+    # country = []
+    # date_added = []
+    # duration = []
+
+    lines = csv_file.readlines()
+
+    data = []
+    with open('output.csv', 'w') as out_file:
+
+        for rows in lines:
+            for col in rows:
+                if col[1] == "TV_Show":
+                    data.append(col)
+                print(data)
+                #out_file.writerow(col)
+    
+    # for row in csv_file_reader:
+    #     #data = row
+    #     if row[1] == "TV_Show":
+    #         # lists = string.split(" ")
+    #         data.append(row)
+
+    #         next(csv_file_reader)
+    #     else:
+    #         next(csv_file_reader)
+
+    # print(data)
+    
+    # show_id.append(row[0])
+    # title.append(row[2])
+    # director.append(row[3])
+    # country.append(row[5])
+    # date_added.append(row[6])
+    # duration.append(row[9])
+
+    # data_dict = {
+    #     "Show_ID": show_id,
+    #     "Title": title,
+    #     "Director": director,
+    #     "Country": country,
+    #     "Date_Added": date_added,
+    #     "Duration": duration
+    # }
+
+    #print(data_dict)
+
+##############################################################################
+import csv
+
+with open('netflix_titles.csv', encoding = 'utf-8') as csv_file:
+    csv_file_reader = csv.reader(csv_file)
+
+    next(csv_file_reader)
+
+    show_id = []
+    title = []
+    director = []
+    country = []
+    date_added = []
+    duration = []
+
+    for line in csv_file_reader:
+        if line[1] == 'TV Show':
+            show_id.append(line[0])
+            title.append(line[2])
+            director.append(line[3])
+            country.append(line[5])
+            date_added.append(line[6])
+            duration.append(line[9])
+
+    data_dict = {
+        "Show_ID": show_id,
+        "Title": title,
+        "Director": director,
+        "Country": country,
+        "Date_Added": date_added,
+        "Duration": duration
+    }
+
+
+
+
+
+    

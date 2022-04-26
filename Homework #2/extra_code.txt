@@ -1,0 +1,148 @@
+std_sales_list = list(" ".join((next(map(float,f_name)))))
+
+std_sales_list = float(std_sales_list)
+
+print("Standard Sales: ", std_sales_list) 
+
+# Assigns the second line of the list in a list of list
+for item in next(f_name)[:-1]:
+            float(item)
+            lists = [][next(f_name)]
+
+
+lists = eval(f_name.read())
+
+ists = float(lists)
+        for item in range(len(lists)):
+            print(lists)
+
+
+lists = []
+
+with open(filename) as f_name:
+    for line in f_name:
+        lists = (item.strip() for item in line.split(','))
+        lists.append(lists)
+
+print(lists)
+
+#lists = [[][next(f_name)]]
+        lists = [[next(f_name)]]
+        
+        line_count = 0
+
+        for line in f_name:
+            if line != "\n":
+                line_count += 1
+
+            for item in lists[:-1]:
+                float(item)
+                lists = lists.append[next(f_name)]
+
+        print(lists)
+
+#lists = [][]
+
+        #for list in lists:
+        #    idx += 0
+        #    lists = [idx][next(f_name)]
+
+
+# Creates a list for standard sales
+        std_sales_list = [next(f_name)]
+        sales_list = "".join(std_sales_list)
+        
+        for item in sales_list:
+            float(item)
+
+        print(sales_list)
+
+        # Converts the standard sales list from string to float
+        for item in std_sales_list[:-1]:
+           float(item)
+        
+        print(std_sales_list[0])
+        
+        count = 1
+        for item in f_name:
+            if count != "\n":
+                count += 1
+        
+        print(count)
+
+        # Assigns the first row to the list
+        #lists = f_name
+        #sales_lists = "".join(lists)
+
+        #for item in sales_lists[:-1]:
+        #    float(item)
+
+        #print(sales_lists)
+        #print(lists)
+
+         values = f_name.readlines()
+        lists = []
+
+        for item in range(len(values)):
+            sales = " ".join(values[item])
+            lists.append(sales)
+        
+        print(lists)
+
+
+count = 0
+        
+
+item = 0
+        while (item <= len(lists)):
+            temp_sales_list = lists[item].split(' ')
+            sales_lists.append(temp_sales_list)
+
+
+sales_lists = []
+
+        for item in temp_sales_lists[:-1]:
+            sales_lists.append(float(item))
+
+sum2 = sales_lists[0][0] + sales_lists[0][1]
+        print(sum2)
+        print('\n')
+
+print(sales_lists)
+        print('\n')
+
+sum1 = std_sales_list[0] + std_sales_list[1]
+        print(sum1)
+        print('\n')
+
+print(temp_std_sales_list)
+        print('\n')
+
+avg = sales_sum / sales_dict["Department"]
+        sales_dict["Average"] = (format(" ".join(avg)))
+
+# sales_dict["Average"] = (.format(" ".join(data[idx])))
+
+# Check if the entries are greater than or equal to the standard
+    for row in sales_lists:
+        for col in range(item):
+            if col > std_sales[item]:
+                sales_dict['Above'] = above
+            elif col == std_sales[item]:
+                sales_dict['Above'] = equal
+            else:
+                sales_dict["Above"] = below
+        #print(sales_dict["Above"])
+        
+
+        #########################################################
+## Function Name: get_data                             ##
+## Description:   This function takes a filename and   ##
+##                reads the file data into a list and  ##
+##                a list of lists                      ##               
+## Parameters:    string filename: the name of the file##
+##                to open - read                       ##
+## Return Value:  A list containing the standard sales ##
+##                and a list of lists of floats read   ##
+##                from a file                          ##
+#########################################################

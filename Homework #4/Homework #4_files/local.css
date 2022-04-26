@@ -1,0 +1,138 @@
+/* Justify: Justify on sm, md, lg. Hyphenate on all. {{{ */
+.justify {
+  /* Hyphenate on all devices */
+  -webkit-hyphens:  auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+@media only screen and (min-width: 768px) {
+  .justify {
+    text-align: justify;
+  }
+}
+
+/* Don't justify headings, table heads */
+.justify h1, .justify h2, .justify h3,
+.justify h4, .justify h5, .justify h6,
+.justify table.table
+{
+  text-align: left
+}
+/* }}} */
+
+/* Fix padding of lists in right column */
+div.flushed-left-list > ul,
+ul.flushed-left-list,
+#hw-handouts ul {
+  /* list-style-position: inside; */
+  padding-left: 1em;
+}
+
+div.flushed-left-list > ol,
+ol.flushed-left-list {
+  padding-left: 1.4em;
+}
+
+.tight-float-right {
+  float: right;
+  clear: right;
+}
+
+.hide-xoverflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+ol.post-series, ul.post-series
+{
+  padding-left: 2ex;
+  font-size: .8rem;
+}
+
+.post-series > li {
+  list-style-position: inside;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Comments */
+/* Same size block quotes */
+ul.comments  div.small blockquote {
+  font-size: inherit;
+}
+
+.small-1 {
+  font-size: .8rem;
+}
+
+
+/* Right navigation {{{ */
+#toc>div.toc ul {display: none}
+#toc>div.toc ul.nav {display: flex}
+#col-right .toc ul.nav {
+  list-style: none;
+  white-space: nowrap;
+  font-size: .8rem;
+}
+
+#col-right .toc > ul.nav {
+  padding-bottom: 1rem;
+}
+
+#col-right .toc ul.nav li.nav-item a.nav-link {
+  padding: 0px;
+}
+
+#col-right .toc ul.nav ul.nav {
+  padding: 0rem 0rem 0rem 1rem;
+}
+
+
+/* Hide inactive sub-lists */
+#col-right .toc > ul.nav li.nav-item > ul.nav {
+  display: none;
+}
+
+#col-right .toc > ul.nav li.nav-item > a.nav-link.active + ul.nav {
+  display: block;
+}
+
+#col-right .toc > ul.nav li.nav-item > a.nav-link.active {
+  color: #31708F; /* text-info */
+  font-weight: bold;
+}
+
+#col-right .toc > ul.nav li.nav-item > a.nav-link {
+  color: #777; /* text-muted */
+}
+
+/* }}} */
+
+/* From Bootstrap 3 */
+.codehilite > pre {
+  padding: 9.5px;
+  margin: 0 0 10px;
+  /* font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word; */
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+blockquote {
+  padding: .5em 1em;
+  margin: 0 0 1em;
+  /* font-size: 17.5px; */
+  border-left: .25em solid #eee;
+}
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
+}
+

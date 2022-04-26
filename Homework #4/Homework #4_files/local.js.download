@@ -1,0 +1,94 @@
+'use strict';
+
+$(document).ready( function() {
+  if( $('body[data-scroll-toc]').length ) {
+    /* Setup scroll-spy on #toc lists */
+    $('#toc>div.toc ul').addClass('nav flex-column')
+      .children('li').addClass('nav-item')
+      .children('a').addClass('nav-link');
+
+    $('body')
+      .css('position', 'relative')
+      .scrollspy( {target: '#toc'} );
+  }
+}); /* end ready */
+
+function submit_comment() {
+  function failfn(data) {
+    $('#comment-form,#comment-sending').addClass('d-none');
+    $('#comment-failed,#comment-form').removeClass( 'd-none' );
+    
+  }
+
+  $('#comment-failed,#comment-form,#comment-success').addClass('d-none');
+  $('#comment-sending').removeClass( 'd-none' );
+
+  $.post( "https://faculty.kutztown.edu/earl/cgi-bin/comment.py",
+      $('#comment-form').serializeArray() )
+    .done( function( data ) {
+	if( data.trim() == "OK" ) {
+	  $('#comment-failed,#comment-form,#comment-sending')
+	    .addClass('d-none');
+	  $('#comment-success').removeClass( 'd-none' );
+	}
+	else failfn(data);
+      }
+    )
+    .fail( failfn );
+}
+
+function get_grades( dirname, fname, show_stats, show_total) {
+  // IE doesn't support default arguments.
+  if( show_stats === undefined ) show_stats = true;
+  if( show_total === undefined ) show_total = true;
+
+  function failfn( msg ) {
+    $('#status')
+      .attr( 'class', 'alert alert-danger' )
+      .text( 'Sorry, an error occurred.' );}
+
+  $.getJSON( "https://faculty.kutztown.edu/earl/cgi-bin/auth/getgrades.py",
+    { dirname: dirname,
+      filename: JSON.stringify(fname),
+      show_stats: show_stats, show_total: show_total },
+    function(data) {
+	var table = $('#scores');
+	var thead = $('<thead><tr><th></th></tr></thead>').appendTo(table)
+	  .children();
+	var tbody = $('<tbody></tbody>').appendTo(table);
+
+	if( data.hasOwnProperty('error') )
+	  failfn( data.error );
+	else {
+	  $('#status').addClass( 'd-none' );
+
+	  if( data.name )
+	    $('#student-name').text(data.name).wrap('<strong></strong>');
+	  else
+	    $('#status')
+	      .attr( 'class', 'alert alert-warning' )
+	      .text( 'Your scores were not found!' );
+
+	  // for( let c of data.cols ) throws an error in IE
+	  for ( let i=0; i < data.cols.length; i++ ) {
+	      thead.append( '<th class="text-right">'
+		+ data.cols[i][0] + '</th>' );
+	      /* console.log( '<td>' + c[0] + '</td>' ); */
+	  };
+
+	  for ( let i=0; i < data.rows.length; i++ ) {
+	    let tr = $('<tr></tr>').appendTo(tbody);
+
+	    tr.append('<th>' + data.rows[i] + '</th>' );
+	    for( let j=0; j < data.cols.length; j++ )
+	      tr.append( '<td class="text-right">'
+		+ data.cols[j][i+1] + '</td>' );
+	  }
+
+	  /* $('#form-output').text(JSON.stringify(data, null, 2)); */
+	}
+      }
+    ) /* getJSON */
+  .fail(failfn)
+  ;
+}
